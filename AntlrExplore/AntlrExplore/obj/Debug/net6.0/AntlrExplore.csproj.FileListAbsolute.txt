@@ -1,0 +1,17 @@
+C:\Users\crich\Documents\Coding\Fractals\Antlr-Exploration\AntlrExplore\AntlrExplore\bin\Debug\net6.0\AntlrExplore.exe
+C:\Users\crich\Documents\Coding\Fractals\Antlr-Exploration\AntlrExplore\AntlrExplore\bin\Debug\net6.0\AntlrExplore.deps.json
+C:\Users\crich\Documents\Coding\Fractals\Antlr-Exploration\AntlrExplore\AntlrExplore\bin\Debug\net6.0\AntlrExplore.runtimeconfig.json
+C:\Users\crich\Documents\Coding\Fractals\Antlr-Exploration\AntlrExplore\AntlrExplore\bin\Debug\net6.0\AntlrExplore.dll
+C:\Users\crich\Documents\Coding\Fractals\Antlr-Exploration\AntlrExplore\AntlrExplore\bin\Debug\net6.0\AntlrExplore.pdb
+C:\Users\crich\Documents\Coding\Fractals\Antlr-Exploration\AntlrExplore\AntlrExplore\bin\Debug\net6.0\Antlr4.Runtime.Standard.dll
+C:\Users\crich\Documents\Coding\Fractals\Antlr-Exploration\AntlrExplore\AntlrExplore\obj\Debug\net6.0\AntlrExplore.csproj.AssemblyReference.cache
+C:\Users\crich\Documents\Coding\Fractals\Antlr-Exploration\AntlrExplore\AntlrExplore\obj\Debug\net6.0\AntlrExplore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\crich\Documents\Coding\Fractals\Antlr-Exploration\AntlrExplore\AntlrExplore\obj\Debug\net6.0\AntlrExplore.AssemblyInfoInputs.cache
+C:\Users\crich\Documents\Coding\Fractals\Antlr-Exploration\AntlrExplore\AntlrExplore\obj\Debug\net6.0\AntlrExplore.AssemblyInfo.cs
+C:\Users\crich\Documents\Coding\Fractals\Antlr-Exploration\AntlrExplore\AntlrExplore\obj\Debug\net6.0\AntlrExplore.csproj.CoreCompileInputs.cache
+C:\Users\crich\Documents\Coding\Fractals\Antlr-Exploration\AntlrExplore\AntlrExplore\obj\Debug\net6.0\AntlrExplore.csproj.CopyComplete
+C:\Users\crich\Documents\Coding\Fractals\Antlr-Exploration\AntlrExplore\AntlrExplore\obj\Debug\net6.0\AntlrExplore.dll
+C:\Users\crich\Documents\Coding\Fractals\Antlr-Exploration\AntlrExplore\AntlrExplore\obj\Debug\net6.0\refint\AntlrExplore.dll
+C:\Users\crich\Documents\Coding\Fractals\Antlr-Exploration\AntlrExplore\AntlrExplore\obj\Debug\net6.0\AntlrExplore.pdb
+C:\Users\crich\Documents\Coding\Fractals\Antlr-Exploration\AntlrExplore\AntlrExplore\obj\Debug\net6.0\AntlrExplore.genruntimeconfig.cache
+C:\Users\crich\Documents\Coding\Fractals\Antlr-Exploration\AntlrExplore\AntlrExplore\obj\Debug\net6.0\ref\AntlrExplore.dll
