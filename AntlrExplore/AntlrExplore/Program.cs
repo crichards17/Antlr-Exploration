@@ -9,7 +9,7 @@ AntlrInputStream inputStream = new AntlrInputStream(fileContents);
 MathLexer mathLexer = new MathLexer(inputStream);
 CommonTokenStream commonTokenStream = new CommonTokenStream(mathLexer);
 MathParser mathParser = new MathParser(commonTokenStream);
-MathParser.EquationContext equationContext = mathParser.equation();
+MathParser.FileContext fileContext = mathParser.file();
 MathVisitor visitor = new MathVisitor();
 
-visitor.Visit(equationContext);
+visitor.Visit(fileContext);

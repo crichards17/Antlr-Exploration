@@ -32,11 +32,11 @@ using IToken = Antlr4.Runtime.IToken;
 [System.CLSCompliant(false)]
 public interface IMathVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="MathParser.equation"/>.
+	/// Visit a parse tree produced by <see cref="MathParser.file"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitEquation([NotNull] MathParser.EquationContext context);
+	Result VisitFile([NotNull] MathParser.FileContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="MathParser.line"/>.
 	/// </summary>
@@ -44,9 +44,30 @@ public interface IMathVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitLine([NotNull] MathParser.LineContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="MathParser.expression"/>.
+	/// Visit a parse tree produced by the <c>opExpr</c>
+	/// labeled alternative in <see cref="MathParser.expression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitExpression([NotNull] MathParser.ExpressionContext context);
+	Result VisitOpExpr([NotNull] MathParser.OpExprContext context);
+	/// <summary>
+	/// Visit a parse tree produced by the <c>parenExpr</c>
+	/// labeled alternative in <see cref="MathParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitParenExpr([NotNull] MathParser.ParenExprContext context);
+	/// <summary>
+	/// Visit a parse tree produced by the <c>valExpr</c>
+	/// labeled alternative in <see cref="MathParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitValExpr([NotNull] MathParser.ValExprContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="MathParser.value"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitValue([NotNull] MathParser.ValueContext context);
 }

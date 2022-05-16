@@ -5,14 +5,69 @@ grammar Math;
  */
 
 
-equation: line* EOF;
+file
+    : line*
+    ;
 
-line: expression+;
+line
+    : expression+ (NEWLINE | EOF)
+    ;
 
-expression: INTEGER OPERATOR INTEGER;
+// PEMDAS
+expression
+    : LPAREN expression RPAREN # parenExpr
+    | left=expression op=POW right=expression # opExpr
+    | left=expression op=(MUL | DIV) right=expression # opExpr
+    | left=expression op=(SUM | SUB) right=expression # opExpr
+    | val=INTEGER # valExpr //change to value when adding doubles support
+    ;
 
-INTEGER: [0-9]+ ;
+value
+    : INTEGER
+    | DOUBLE
+    ;
 
-OPERATOR: '*' | '/' | '+' | '-';
+// Fragments
+INTEGER
+    : [0-9]+ 
+    ;
 
-WS : [ \t\r\n]+ -> skip;
+DOUBLE
+    : [0-9]+ '.' [0-9]+ 
+    ;
+
+LPAREN
+    : '('
+    ;
+
+RPAREN 
+    : ')'
+    ;
+
+POW
+    : '^'
+    ;
+
+MUL
+    : '*'
+    ;
+
+DIV
+    : '/'
+    ;
+
+SUM
+    : '+'
+    ;
+
+SUB
+    : '-'
+    ;
+
+NEWLINE
+    : '\r\n'
+    | '\n'
+    | '\r'
+    ;
+
+WS : [ \t]+ -> skip;
