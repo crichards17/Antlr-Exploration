@@ -95,14 +95,6 @@ public partial class MathParser : Parser {
 		{
 		}
 		public override int RuleIndex { get { return RULE_file; } }
-		public override void EnterRule(IParseTreeListener listener) {
-			IMathListener typedListener = listener as IMathListener;
-			if (typedListener != null) typedListener.EnterFile(this);
-		}
-		public override void ExitRule(IParseTreeListener listener) {
-			IMathListener typedListener = listener as IMathListener;
-			if (typedListener != null) typedListener.ExitFile(this);
-		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IMathVisitor<TResult> typedVisitor = visitor as IMathVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitFile(this);
@@ -121,7 +113,7 @@ public partial class MathParser : Parser {
 			State = 11;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
-			while (_la==INTEGER || _la==LPAREN) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INTEGER) | (1L << DOUBLE) | (1L << LPAREN))) != 0)) {
 				{
 				{
 				State = 8; line();
@@ -158,14 +150,6 @@ public partial class MathParser : Parser {
 		{
 		}
 		public override int RuleIndex { get { return RULE_line; } }
-		public override void EnterRule(IParseTreeListener listener) {
-			IMathListener typedListener = listener as IMathListener;
-			if (typedListener != null) typedListener.EnterLine(this);
-		}
-		public override void ExitRule(IParseTreeListener listener) {
-			IMathListener typedListener = listener as IMathListener;
-			if (typedListener != null) typedListener.ExitLine(this);
-		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IMathVisitor<TResult> typedVisitor = visitor as IMathVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitLine(this);
@@ -193,7 +177,7 @@ public partial class MathParser : Parser {
 				State = 17;
 				ErrorHandler.Sync(this);
 				_la = TokenStream.LA(1);
-			} while ( _la==INTEGER || _la==LPAREN );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INTEGER) | (1L << DOUBLE) | (1L << LPAREN))) != 0) );
 			State = 19;
 			_la = TokenStream.LA(1);
 			if ( !(_la==Eof || _la==NEWLINE) ) {
@@ -244,14 +228,6 @@ public partial class MathParser : Parser {
 		public ITerminalNode SUM() { return GetToken(MathParser.SUM, 0); }
 		public ITerminalNode SUB() { return GetToken(MathParser.SUB, 0); }
 		public OpExprContext(ExpressionContext context) { CopyFrom(context); }
-		public override void EnterRule(IParseTreeListener listener) {
-			IMathListener typedListener = listener as IMathListener;
-			if (typedListener != null) typedListener.EnterOpExpr(this);
-		}
-		public override void ExitRule(IParseTreeListener listener) {
-			IMathListener typedListener = listener as IMathListener;
-			if (typedListener != null) typedListener.ExitOpExpr(this);
-		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IMathVisitor<TResult> typedVisitor = visitor as IMathVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitOpExpr(this);
@@ -265,14 +241,6 @@ public partial class MathParser : Parser {
 		}
 		public ITerminalNode RPAREN() { return GetToken(MathParser.RPAREN, 0); }
 		public ParenExprContext(ExpressionContext context) { CopyFrom(context); }
-		public override void EnterRule(IParseTreeListener listener) {
-			IMathListener typedListener = listener as IMathListener;
-			if (typedListener != null) typedListener.EnterParenExpr(this);
-		}
-		public override void ExitRule(IParseTreeListener listener) {
-			IMathListener typedListener = listener as IMathListener;
-			if (typedListener != null) typedListener.ExitParenExpr(this);
-		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IMathVisitor<TResult> typedVisitor = visitor as IMathVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitParenExpr(this);
@@ -280,17 +248,10 @@ public partial class MathParser : Parser {
 		}
 	}
 	public partial class ValExprContext : ExpressionContext {
-		public IToken val;
-		public ITerminalNode INTEGER() { return GetToken(MathParser.INTEGER, 0); }
+		public ValueContext value() {
+			return GetRuleContext<ValueContext>(0);
+		}
 		public ValExprContext(ExpressionContext context) { CopyFrom(context); }
-		public override void EnterRule(IParseTreeListener listener) {
-			IMathListener typedListener = listener as IMathListener;
-			if (typedListener != null) typedListener.EnterValExpr(this);
-		}
-		public override void ExitRule(IParseTreeListener listener) {
-			IMathListener typedListener = listener as IMathListener;
-			if (typedListener != null) typedListener.ExitValExpr(this);
-		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IMathVisitor<TResult> typedVisitor = visitor as IMathVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitValExpr(this);
@@ -330,11 +291,12 @@ public partial class MathParser : Parser {
 				}
 				break;
 			case INTEGER:
+			case DOUBLE:
 				{
 				_localctx = new ValExprContext(_localctx);
 				Context = _localctx;
 				_prevctx = _localctx;
-				State = 26; ((ValExprContext)_localctx).val = Match(INTEGER);
+				State = 26; value();
 				}
 				break;
 			default:
@@ -432,14 +394,6 @@ public partial class MathParser : Parser {
 		{
 		}
 		public override int RuleIndex { get { return RULE_value; } }
-		public override void EnterRule(IParseTreeListener listener) {
-			IMathListener typedListener = listener as IMathListener;
-			if (typedListener != null) typedListener.EnterValue(this);
-		}
-		public override void ExitRule(IParseTreeListener listener) {
-			IMathListener typedListener = listener as IMathListener;
-			if (typedListener != null) typedListener.ExitValue(this);
-		}
 		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
 			IMathVisitor<TResult> typedVisitor = visitor as IMathVisitor<TResult>;
 			if (typedVisitor != null) return typedVisitor.VisitValue(this);
@@ -520,7 +474,7 @@ public partial class MathParser : Parser {
 		'\x5', '\x3', '\x2', '\x2', '\x2', '\x17', '\x18', '\b', '\x4', '\x1', 
 		'\x2', '\x18', '\x19', '\a', '\x5', '\x2', '\x2', '\x19', '\x1A', '\x5', 
 		'\x6', '\x4', '\x2', '\x1A', '\x1B', '\a', '\x6', '\x2', '\x2', '\x1B', 
-		'\x1E', '\x3', '\x2', '\x2', '\x2', '\x1C', '\x1E', '\a', '\x3', '\x2', 
+		'\x1E', '\x3', '\x2', '\x2', '\x2', '\x1C', '\x1E', '\x5', '\b', '\x5', 
 		'\x2', '\x1D', '\x17', '\x3', '\x2', '\x2', '\x2', '\x1D', '\x1C', '\x3', 
 		'\x2', '\x2', '\x2', '\x1E', '*', '\x3', '\x2', '\x2', '\x2', '\x1F', 
 		' ', '\f', '\x6', '\x2', '\x2', ' ', '!', '\a', '\a', '\x2', '\x2', '!', 

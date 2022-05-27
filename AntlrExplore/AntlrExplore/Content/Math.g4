@@ -19,7 +19,7 @@ expression
     | left=expression op=POW right=expression # opExpr
     | left=expression op=(MUL | DIV) right=expression # opExpr
     | left=expression op=(SUM | SUB) right=expression # opExpr
-    | val=INTEGER # valExpr //change to value when adding doubles support
+    | value # valExpr
     ;
 
 value
