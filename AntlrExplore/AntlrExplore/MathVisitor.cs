@@ -16,6 +16,15 @@ public class MathVisitor: MathBaseVisitor<decimal>
         return Visit(context.expression());
     }
 
+    public override decimal VisitUnaryExpr([NotNull] MathParser.UnaryExprContext context)
+    {
+        decimal value = decimal.Parse((context.value().GetText()));
+        if (context.sign.Text == "-"){
+            return value * -1;
+        }
+        return value;
+    }
+
     public override decimal VisitValExpr([NotNull] MathParser.ValExprContext context)
     {
         

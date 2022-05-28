@@ -44,6 +44,13 @@ public interface IMathVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitLine([NotNull] MathParser.LineContext context);
 	/// <summary>
+	/// Visit a parse tree produced by the <c>unaryExpr</c>
+	/// labeled alternative in <see cref="MathParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitUnaryExpr([NotNull] MathParser.UnaryExprContext context);
+	/// <summary>
 	/// Visit a parse tree produced by the <c>opExpr</c>
 	/// labeled alternative in <see cref="MathParser.expression"/>.
 	/// </summary>

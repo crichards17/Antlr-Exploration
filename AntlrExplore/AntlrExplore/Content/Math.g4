@@ -19,6 +19,7 @@ expression
     | left=expression op=POW right=expression # opExpr
     | left=expression op=(MUL | DIV) right=expression # opExpr
     | left=expression op=(SUM | SUB) right=expression # opExpr
+    | sign=(SUM | SUB) value #unaryExpr
     | value # valExpr
     ;
 
